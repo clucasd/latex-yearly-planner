@@ -31,7 +31,8 @@ if [[ -n "${PASSES}" ]]; then
 fi
 
 for _ in "${_passes[@]}"; do
-  xelatex \
+  #xelatex \
+  pdflatex \
     -file-line-error \
     -interaction=nonstopmode \
     -synctex=1 \
