@@ -86,6 +86,8 @@ type Numbers struct {
 	IndexMeetingNotes   int
 	NotesIndexPages     int
 	NotesOnPage         int
+	TasksIndexPages     int
+	TasksOnPage         int
 	DotHeightFull       int
 	DotWidthFull        int
 	DotWidthTwoThirds   int

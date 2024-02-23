@@ -8,5 +8,5 @@
 \hspace{\myLenTriColSep}%
 \begin{minipage}[t][\remainingHeight]{\dimexpr2\myLenTriCol+\myLenTriColSep}
   \vskip-\myLenLineHeightButLine
-  \vbox to 0pt{\myMash[\myQuarterlySpring]{\myNumQuarterlyLines}{\myNumDotWidthTwoThirds}}
+  \vbox to \dimexpr\textheight-\pagetotal+3pt{\myMash[\myQuarterlySpring]{\myNumQuarterlyLines}{\myNumDotWidthTwoThirds}\vspace{0pt plus 1pt}}
 \end{minipage}

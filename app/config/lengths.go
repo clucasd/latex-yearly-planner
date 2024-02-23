@@ -10,6 +10,7 @@ type Lengths struct {
 	FiveColSep              string
 	MonthlyCellHeight       string
 	NotesIndexCellHeight    string
+	TasksIndexCellHeight    string
 	HeaderResizeBox         string
 	HeaderSideCellHeight    string
 	HeaderSideQuartersWidth string

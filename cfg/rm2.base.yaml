@@ -1,4 +1,4 @@
-cleartoprightcorner: true
+cleartoprightcorner: false
 
 layout:
   paper:
@@ -27,12 +27,14 @@ layout:
     dailydiarylog: 26
     notesindexpages: 3
     notesonpage: 38
+    tasksindexpages: 1
+    tasksonpage: 38
     dotheightfull: 38
     dotwidthtwothirds: 19
     dotwidthfull: 29
 
   lengths:
-    tabcolsep: 3.5pt
+    tabcolsep: 3.2pt
     linethicknessdefault: .4pt
     linethicknessthick: .8pt
     lineheightbutline: \dimexpr5mm-.4pt
@@ -40,4 +42,5 @@ layout:
     tricolsep: 5pt
     monthlycellheight: 55pt
     notesindexcellheight: 1.45cm
+    tasksindexcellheight: 1.45cm
     quarterlyspring: \textcolor{white}{..}

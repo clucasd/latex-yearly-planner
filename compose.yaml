@@ -7,6 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - YEAR=2026
+      - YEAR=2025
     volumes:
       - .:/go/src/app:rw

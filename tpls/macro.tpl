@@ -35,6 +35,7 @@
 \newlength{\myLenFiveCol}
 \newlength{\myLenMonthlyCellHeight}
 \newlength{\myLenNotesIndexCellHeight}
+\newlength{\myLenTasksIndexCellHeight}
 \newlength{\myLenHeaderResizeBox}
 \newlength{\myLenHeaderSideQuartersWidth}
 \newlength{\myLenHeaderSideMonthsWidth}
@@ -52,6 +53,7 @@
 \setlength{\myLenTriColSep}{ {{- $lengths.TriColSep -}} }
 \setlength{\myLenTriCol}{\dimexpr.333\linewidth-.667\myLenTriColSep}
 \setlength{\myLenNotesIndexCellHeight}{ {{- $lengths.NotesIndexCellHeight -}} }
+\setlength{\myLenTasksIndexCellHeight}{ {{- $lengths.TasksIndexCellHeight -}} }
 \setlength{\myLenHeaderResizeBox}{ {{- $lengths.HeaderResizeBox -}} }
 \setlength{\myLenHeaderSideQuartersWidth}{ {{- $lengths.HeaderSideQuartersWidth -}} }
 \setlength{\myLenHeaderSideMonthsWidth}{ {{- $lengths.HeaderSideMonthsWidth -}} }

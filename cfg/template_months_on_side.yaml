@@ -53,3 +53,10 @@ pages:
         tpls:
           - mos_08_notes_index.tpl
           - mos_09_notes.tpl
+  
+  - name: tasks_indexed
+    renderblocks:
+      - funcname: tasks_indexed
+        tpls:
+          - mos_10_tasks_index.tpl
+          - mos_11_tasks.tpl

@@ -23,12 +23,12 @@ func Annual(cfg config.Config, tpls []string) (page.Modules, error) {
 			"SideMonths":   year.SideMonths(0),
 			"Extra": header.Items{header.NewTextItem("Notes").RefText("Notes Index")}.
 				WithTopRightCorner(cfg.ClearTopRightCorner),
-			"Extra2": extra2(cfg.ClearTopRightCorner, true, false, nil, 0),
+			"Extra2": extra2(cfg.ClearTopRightCorner, true, false, false, nil, 0),
 		},
 	}}, nil
 }
 
-func extra2(ctrc, sel1, sel2 bool, week *cal.Week, idxPage int) header.Items {
+func extra2(ctrc, sel1, sel2, sel3 bool, week *cal.Week, idxPage int) header.Items {
 	items := make(header.Items, 0, 3)
 
 	if week != nil && 1==0 {
@@ -37,15 +37,17 @@ func extra2(ctrc, sel1, sel2 bool, week *cal.Week, idxPage int) header.Items {
 
 	items = append(items, header.NewCellItem("Calendar").Selected(sel1))
 
+	items = append(items, header.NewCellItem("Tasks").Refer("Tasks Index").Selected(sel2))
+
 	if idxPage > 0 {
 		suffix := ""
 		if idxPage > 1 {
 			suffix = " " + strconv.Itoa(idxPage)
 		}
 
-		items = append(items, header.NewCellItem("Notes").Refer("Notes Index"+suffix).Selected(sel2))
+		items = append(items, header.NewCellItem("Notes").Refer("Notes Index"+suffix).Selected(sel3))
 	} else {
-		items = append(items, header.NewCellItem("Notes").Refer("Notes Index").Selected(sel2))
+		items = append(items, header.NewCellItem("Notes").Refer("Notes Index").Selected(sel3))
 	}
 
 	return items.WithTopRightCorner(ctrc)

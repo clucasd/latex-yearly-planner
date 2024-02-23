@@ -1,4 +1,4 @@
-package note
+package task
 
 import (
 	"fmt"
@@ -9,18 +9,18 @@ import (
 	"github.com/kudrykv/latex-yearly-planner/app/tex"
 )
 
-type Notes []*Note
-type Note struct {
+type Tasks []*Task
+type Task struct {
 	Year   int
 	Number int
 	Page   int
 }
 
-func NewNote(year, page, number int) *Note {
-	return &Note{Year: year, Page: page, Number: number}
+func NewTask(year, page, number int) *Task {
+	return &Task{Year: year, Page: page, Number: number}
 }
 
-func (p Notes) Breadcrumb(year, idx int) string {
+func (p Tasks) Breadcrumb(year, idx int) string {
 	postfix := ""
 	if idx > 0 {
 		postfix = " " + strconv.Itoa(idx+1)
@@ -28,18 +28,18 @@ func (p Notes) Breadcrumb(year, idx int) string {
 
 	return header.Items{
 		header.NewIntItem(year),
-		header.NewTextItem("Notes Index" + postfix).Ref(true),
+		header.NewTextItem("Tasks Index" + postfix).Ref(true),
 	}.Table(true)
 }
 
-func (p Notes) HeadingMOS(page, pages int) string {
+func (p Tasks) HeadingMOS(page, pages int) string {
 	var out string
 
 	if page > 1 && 1==0 {
 		out += tex.Hyperlink(p.ref(page-1), tex.ResizeBoxW(`\myLenHeaderResizeBox`, `$\langle$`)) + " "
 	}
 
-	out += tex.Hypertarget(p.ref(page), "") + tex.ResizeBoxW(`\myLenHeaderResizeBox`, `Notes Index`)
+	out += tex.Hypertarget(p.ref(page), "") + tex.ResizeBoxW(`\myLenHeaderResizeBox`, `Tasks Index`)
 
 	if page < pages && 1==0 {
 		out += " " + tex.Hyperlink(p.ref(page+1), tex.ResizeBoxW(`\myLenHeaderResizeBox`, `$\rangle$`))
@@ -48,21 +48,21 @@ func (p Notes) HeadingMOS(page, pages int) string {
 	return out
 }
 
-func (p Notes) ref(page int) string {
+func (p Tasks) ref(page int) string {
 	var suffix string
 
 	if page > 1 {
 		suffix = " " + strconv.Itoa(page)
 	}
 
-	return "Notes Index" + suffix
+	return "Tasks Index" + suffix
 }
 
-func (n Note) HyperLink() string {
+func (n Task) HyperLink() string {
 	return hyper.Link(n.ref(), fmt.Sprintf("%02d", n.Number))
 }
 
-func (n Note) Breadcrumb() string {
+func (n Task) Breadcrumb() string {
 	page := ""
 
 	if n.Page > 1 {
@@ -71,31 +71,31 @@ func (n Note) Breadcrumb() string {
 
 	return header.Items{
 		header.NewIntItem(n.Year),
-		header.NewTextItem("Notes Index" + page),
+		header.NewTextItem("Tasks Index" + page),
 		header.NewTextItem(n.ref()).Ref(true),
 	}.Table(true)
 }
 
-func (n Note) PrevNext(notes int) header.Items {
+func (n Task) PrevNext(Tasks int) header.Items {
 	items := header.Items{}
 
 	if n.Number > 1 {
-		items = append(items, header.NewTextItem("Note "+strconv.Itoa(n.Number-1)))
+		items = append(items, header.NewTextItem("Task "+strconv.Itoa(n.Number-1)))
 	}
 
-	if n.Number < notes {
-		items = append(items, header.NewTextItem("Note "+strconv.Itoa(n.Number+1)))
+	if n.Number < Tasks {
+		items = append(items, header.NewTextItem("Task "+strconv.Itoa(n.Number+1)))
 	}
 
 	return items
 }
 
-func (n Note) HeadingMOS(page int) string {
+func (n Task) HeadingMOS(page int) string {
 	num := strconv.Itoa(n.Number)
 
-	return tex.Hypertarget(n.ref(), "") + tex.ResizeBoxW(`\myLenHeaderResizeBox`, `Note `+num+`\myDummyQ`)
+	return tex.Hypertarget(n.ref(), "") + tex.ResizeBoxW(`\myLenHeaderResizeBox`, `Task `+num+`\myDummyQ`)
 }
 
-func (n Note) ref() string {
-	return "Note " + strconv.Itoa(n.Number)
+func (n Task) ref() string {
+	return "Task " + strconv.Itoa(n.Number)
 }
