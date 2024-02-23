@@ -31,7 +31,7 @@ func Annual(cfg config.Config, tpls []string) (page.Modules, error) {
 func extra2(ctrc, sel1, sel2 bool, week *cal.Week, idxPage int) header.Items {
 	items := make(header.Items, 0, 3)
 
-	if week != nil {
+	if week != nil && 1==0 {
 		items = append(items, header.NewCellItem(week.Name()))
 	}
 

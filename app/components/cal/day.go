@@ -52,7 +52,7 @@ func (d Day) Add(days int) Day {
 }
 
 func (d Day) WeekLink() string {
-	return hyper.Link(d.ref(), strconv.Itoa(d.Time.Day())+", "+d.Time.Weekday().String())
+	return hyper.Link(d.ref(), strconv.Itoa(d.Time.Day())+" "+d.Time.Weekday().String())
 }
 
 func (d Day) Breadcrumb(prefix string, leaf string, shorten bool) string {
@@ -159,7 +159,7 @@ func (d Day) HeadingMOS(prefix, leaf string) string {
 	var ll, rl string
 	var r1, r2 []string
 
-	if d.PrevExists() {
+	if d.PrevExists() && 1==0 {
 		ll = "l"
 		leftNavBox := tex.ResizeBoxW(anglesize, `$\langle$`)
 		r1 = append(r1, tex.Multirow(2, tex.Hyperlink(d.Prev().ref(prefix), leftNavBox)))
@@ -171,7 +171,7 @@ func (d Day) HeadingMOS(prefix, leaf string) string {
 	r1 = append(r1, tex.Bold(d.Time.Weekday().String()))
 	r2 = append(r2, d.Time.Month().String())
 
-	if d.NextExists() {
+	if d.NextExists() && 1==0 {
 		rl = "l"
 		rightNavBox := tex.ResizeBoxW(anglesize, `$\rangle$`)
 		r1 = append(r1, tex.Multirow(2, tex.Hyperlink(d.Next().ref(prefix), rightNavBox)))
