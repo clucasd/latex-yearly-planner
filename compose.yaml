@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - YEAR=2024     #Generates for next year unless alternate year set
+      - YEAR=     #Generates for next year unless alternate year set
       - PREVIEW=0  #Generate a preview of the planner 
     volumes:
       - .:/go/src/app:rw

@@ -9,8 +9,9 @@ else
   echo "Building using plannergen binary at \"${PLANNERGEN_BINARY}\""
 fi
 
-if [ -n "$PREVIEW" ]; then
+if [[ "$PREVIEW" -eq 1 ]]; then
   eval $GO_CMD --preview --config "${CFG}"
+  echo "Building preview of Planner"
 else
   eval $GO_CMD --config "${CFG}"
 fi
