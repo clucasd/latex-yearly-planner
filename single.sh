@@ -9,13 +9,11 @@ else
   echo "Building using plannergen binary at \"${PLANNERGEN_BINARY}\""
 fi
 
-if [ -z "$PREVIEW" ]; then
-  eval $GO_CMD --config "${CFG}"
-else
+if [ -n "$PREVIEW" ]; then
   eval $GO_CMD --preview --config "${CFG}"
+else
+  eval $GO_CMD --config "${CFG}"
 fi
-
-
 
 nakedname=$(echo "${CFG}" | rev | cut -d, -f1 | cut -d'/' -f 1 | cut -d'.' -f 2-99 | rev)
 

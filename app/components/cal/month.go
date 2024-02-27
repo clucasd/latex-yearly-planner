@@ -46,10 +46,11 @@ func NewMonth(wd time.Weekday, year *Year, qrtr *Quarter, month time.Month) *Mon
 	return m
 }
 
-func (m *Month) MaybeName(large interface{}) string {
+func (m *Month) MaybeName(large interface{}, hidename interface{}) string {
 	larg, _ := large.(bool)
+	hidenm, _ := hidename.(bool)
 
-	if larg { // likely on a monthly page; no need to print it again
+	if larg || hidenm { // likely on a monthly page; no need to print it again
 		return ""
 	}
 

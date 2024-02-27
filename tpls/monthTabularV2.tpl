@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{\myLenTabColSep}%
 %
 {{ .Month.DefineTable .TableType .Large }}
-  {{ .Month.MaybeName .Large }}
+  {{ .Month.MaybeName .Large .HideName }}
   {{ if $.Large -}} \hline {{- end }}
   {{ .Month.WeekHeader .Large }} \\ {{ if .Large -}} \noalign{\hrule height \myLenLineThicknessThick} {{- else -}} \hline {{- end}}
   {{- range $i, $week := .Month.Weeks }}

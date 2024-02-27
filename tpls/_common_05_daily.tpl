@@ -5,7 +5,7 @@
   \vspace{\dimexpr4mm+.3pt}
 
 {{- if .Cfg.CalAfterSchedule -}}
-{{- template "monthTabularV2.tpl" dict "Month" .Body.Month "Today" $today -}}
+{{- template "monthTabularV2.tpl" dict "Month" .Body.Month "Today" $today "HideName" true -}}
 {{- end -}}
 \end{minipage}%
 \hspace{\myLenTriColSep}%
